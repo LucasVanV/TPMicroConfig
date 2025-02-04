@@ -7,13 +7,16 @@ spring:
 
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
     consumer:
-      group-id: card-group
-      auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    properties:
-      enable.auto.commit: false
+      group-id: borrowing-group
+      auto-offset-reset: earliest
+    topic:
+      borrowing: borrowing-events
 
   datasource:
     url: jdbc:h2:mem:bookdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
