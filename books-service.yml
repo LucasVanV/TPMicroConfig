@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: book-service
+    name: books-service
 
     kafka:
       bootstrap-servers: localhost:9092
